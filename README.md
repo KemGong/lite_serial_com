@@ -76,6 +76,52 @@ A simple and user-friendly serial port debugging tool with data transmission, fi
    - Data will be automatically saved
    - Click again to stop saving
 
+## Building Executable
+
+### Method 1: Using Build Script (Recommended)
+
+1. Ensure required packages are installed:
+   ```bash
+   pip install pyinstaller
+   pip install pyserial
+   ```
+
+2. Run the build script:
+   ```bash
+   build.bat
+   ```
+
+3. The executable will be in the `dist` folder after building
+
+### Method 2: Using PyInstaller Directly
+
+1. Install PyInstaller:
+   ```bash
+   pip install pyinstaller
+   ```
+
+2. Run the build command:
+   ```bash
+   pyinstaller --name SerialDebugger ^
+       --onefile ^
+       --windowed ^
+       --hidden-import serial.tools.list_ports ^
+       --hidden-import serial.tools.list_ports_common ^
+       --add-data "icon.ico;." ^
+       --clean ^
+       serial_debugger.py
+   ```
+
+3. The executable will be in the `dist` folder after building
+
+### Build Notes
+
+- Ensure Python environment variables are correctly set
+- Python 3.8 or higher is recommended
+- Run as administrator if permission issues occur
+- Building process may take several minutes
+- Generated executable size is approximately 20-30MB
+
 ## Notes
 
 - Ensure proper port access permissions

@@ -76,6 +76,52 @@
    - 数据会自动保存到文件中
    - 再次点击按钮可停止保存
 
+## 构建可执行文件
+
+### 方法一：使用打包脚本（推荐）
+
+1. 确保已安装所需包：
+   ```bash
+   pip install pyinstaller
+   pip install pyserial
+   ```
+
+2. 运行打包脚本：
+   ```bash
+   build.bat
+   ```
+
+3. 打包完成后，可执行文件将在 `dist` 文件夹中
+
+### 方法二：直接使用 PyInstaller
+
+1. 安装 PyInstaller：
+   ```bash
+   pip install pyinstaller
+   ```
+
+2. 运行打包命令：
+   ```bash
+   pyinstaller --name SerialDebugger ^
+       --onefile ^
+       --windowed ^
+       --hidden-import serial.tools.list_ports ^
+       --hidden-import serial.tools.list_ports_common ^
+       --add-data "icon.ico;." ^
+       --clean ^
+       serial_debugger.py
+   ```
+
+3. 打包完成后，可执行文件将在 `dist` 文件夹中
+
+### 注意事项
+
+- 确保 Python 环境变量已正确设置
+- 建议使用 Python 3.8 或更高版本
+- 如果遇到权限问题，请以管理员身份运行
+- 打包过程可能需要几分钟时间
+- 生成的可执行文件大小约为 20-30MB
+
 ## 注意事项
 
 - 确保有正确的串口访问权限
