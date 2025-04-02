@@ -2,6 +2,8 @@
 
 A simple and user-friendly serial port debugging tool with data transmission, file saving, and other features.
 
+![my_picture](lite_serial_com.png "lite_serial_com")
+
 ## Features
 
 - Serial Port Configuration
@@ -128,6 +130,10 @@ A simple and user-friendly serial port debugging tool with data transmission, fi
 - Make sure port is open before sending data
 - Loop send delay cannot be less than 10ms
 - Ensure write permissions for file saving
+
+### Method 3: Using Prebuilt `SerialDebugger.exe`
+
+The prebuilt executable is located in the `dist` folder and can be run directly as `SerialDebugger.exe`.
 
 ## Common Issues
 
