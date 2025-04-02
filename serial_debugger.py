@@ -63,23 +63,29 @@ class SerialDebugger:
         self.connect_button.grid(row=0, column=5, padx=2)
         
         # 第二行：数据位、停止位、校验位
-        ttk.Label(settings_frame, text="数据位:").grid(row=1, column=0, padx=0, pady=5, sticky="w")
+        bits_frame = ttk.Frame(settings_frame)
+        bits_frame.grid(row=1, column=0, columnspan=6, pady=5, sticky="w")
+        
+        # 数据位
+        ttk.Label(bits_frame, text="数据位:").pack(side="left", padx=0)
         self.data_bits_var = tk.StringVar(value="8")
-        self.data_bits_combo = ttk.Combobox(settings_frame, textvariable=self.data_bits_var, width=4,
+        self.data_bits_combo = ttk.Combobox(bits_frame, textvariable=self.data_bits_var, width=4,
                                           values=["5", "6", "7", "8"])
-        self.data_bits_combo.grid(row=1, column=1, padx=0, pady=5, sticky="w")
+        self.data_bits_combo.pack(side="left", padx=0)
         
-        ttk.Label(settings_frame, text="停止位:").grid(row=1, column=2, padx=0, pady=5, sticky="w")
+        # 停止位
+        ttk.Label(bits_frame, text="停止位:").pack(side="left", padx=0)
         self.stop_bits_var = tk.StringVar(value="1")
-        self.stop_bits_combo = ttk.Combobox(settings_frame, textvariable=self.stop_bits_var, width=4,
+        self.stop_bits_combo = ttk.Combobox(bits_frame, textvariable=self.stop_bits_var, width=4,
                                           values=["1", "1.5", "2"])
-        self.stop_bits_combo.grid(row=1, column=3, padx=0, pady=5, sticky="w")
+        self.stop_bits_combo.pack(side="left", padx=0)
         
-        ttk.Label(settings_frame, text="校验位:").grid(row=1, column=4, padx=0, pady=5, sticky="w")
+        # 校验位
+        ttk.Label(bits_frame, text="校验位:").pack(side="left", padx=0)
         self.parity_var = tk.StringVar(value="N")
-        self.parity_combo = ttk.Combobox(settings_frame, textvariable=self.parity_var, width=4,
+        self.parity_combo = ttk.Combobox(bits_frame, textvariable=self.parity_var, width=4,
                                        values=["N", "E", "O", "M", "S"])
-        self.parity_combo.grid(row=1, column=5, padx=0, pady=5, sticky="w")
+        self.parity_combo.pack(side="left", padx=0)
         
         # 接收区框架
         receive_frame = ttk.LabelFrame(self.main_frame, text="接收区", padding="5")
