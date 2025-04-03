@@ -91,9 +91,20 @@ class SerialDebugger:
         receive_frame = ttk.LabelFrame(self.main_frame, text="接收区", padding="5")
         receive_frame.pack(fill="both", expand=True, pady=5)
         
-        # 接收区文本
-        self.receive_text = tk.Text(receive_frame, wrap=tk.WORD, height=8)
-        self.receive_text.pack(fill="both", expand=True)
+        # 创建接收区容器框架
+        receive_container = ttk.Frame(receive_frame)
+        receive_container.pack(fill="both", expand=True)
+        
+        # 接收区文本和滚动条
+        self.receive_text = tk.Text(receive_container, wrap=tk.WORD, height=8)
+        self.receive_text.pack(side="left", fill="both", expand=True)
+        
+        # 添加滚动条
+        receive_scrollbar = ttk.Scrollbar(receive_container, orient="vertical", command=self.receive_text.yview)
+        receive_scrollbar.pack(side="right", fill="y")
+        
+        # 配置文本区域与滚动条的关联
+        self.receive_text.configure(yscrollcommand=receive_scrollbar.set)
         
         # 接收区控制框架
         receive_control_frame = ttk.Frame(receive_frame)
