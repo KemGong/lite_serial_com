@@ -2,7 +2,9 @@
 
 A simple and user-friendly serial port debugging tool with data transmission, file saving, and other features.
 
-![my_picture](lite_serial_com.png "lite_serial_com")
+## Demo Video
+
+Watch the demo video: [Lite Serial Debugger Usage Demo](lite_serial_com_video.mp4)
 
 ## Features
 
@@ -31,6 +33,7 @@ A simple and user-friendly serial port debugging tool with data transmission, fi
   - Auto-wrap toggle
   - File save status display
   - Port connection status display
+  - Chinese/English interface switching
 
 ## Requirements
 
@@ -77,6 +80,11 @@ A simple and user-friendly serial port debugging tool with data transmission, fi
    - Choose save location
    - Data will be automatically saved
    - Click again to stop saving
+
+6. Language Switching:
+   - Select language (中文/English) in the port settings area
+   - Interface will switch immediately to the selected language
+   - All prompt messages will also switch accordingly
 
 ## Building Executable
 
@@ -130,10 +138,6 @@ A simple and user-friendly serial port debugging tool with data transmission, fi
 - Make sure port is open before sending data
 - Loop send delay cannot be less than 10ms
 - Ensure write permissions for file saving
-
-### Method 3: Using Prebuilt `SerialDebugger.exe`
-
-The prebuilt executable is located in the `dist` folder and can be run directly as `SerialDebugger.exe`.
 
 ## Common Issues
 
